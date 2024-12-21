@@ -9,7 +9,6 @@ import {EventBus} from "./EventBus";
   standalone: true,
 })
 export class PhaserGame implements OnInit {
-
   scene: Phaser.Scene;
   game: Phaser.Game;
 
@@ -19,25 +18,17 @@ export class PhaserGame implements OnInit {
     this.game = StartGame('game-container');
 
     EventBus.on('current-scene-ready', (scene: Phaser.Scene) => {
-
       this.scene = scene;
-
       if (this.sceneCallback) {
-
         this.sceneCallback(scene);
-
       }
-
     });
   }
 
   // Component unmounted
   ngOnDestroy() {
-
     if (this.game) {
-
       this.game.destroy(true);
-
     }
   }
 }
