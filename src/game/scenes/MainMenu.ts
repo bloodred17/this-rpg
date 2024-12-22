@@ -12,7 +12,14 @@ export class MainMenu extends Scene {
     super('MainMenu');
   }
 
+  preload() {
+    this.load.atlas('blob', 'assets/blob.png', 'assets/blob.json');
+
+  }
+
   create() {
+    this.anims.createFromAseprite('blob');
+
     this.background = this.add.image(512, 384, 'background');
 
     this.logo = this.add.image(512, 300, 'logo').setDepth(100);
@@ -22,6 +29,8 @@ export class MainMenu extends Scene {
       stroke: '#000000', strokeThickness: 8,
       align: 'center'
     }).setOrigin(0.5).setDepth(100);
+
+
 
     EventBus.emit('current-scene-ready', this);
   }

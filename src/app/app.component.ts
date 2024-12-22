@@ -5,6 +5,7 @@ import {MainMenu} from '../game/scenes/MainMenu';
 import {CommonModule} from '@angular/common';
 import {EventBus} from '../game/EventBus';
 import {CharacterSelect} from "../game/scenes/CharacterSelect";
+import {Game} from "../game/scenes/Game";
 
 @Component({
   selector: 'app-root',
@@ -22,7 +23,7 @@ export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit() {
     EventBus.on('current-scene-ready', (scene: Phaser.Scene) => {
-      this.canMoveSprite = scene.scene.key !== 'MainMenu';
+      // this.canMoveSprite = scene.scene.key !== 'MainMenu';
     });
   }
 
@@ -48,6 +49,13 @@ export class AppComponent implements AfterViewInit {
       scene.moveLogo(({x, y}) => {
         this.spritePosition = {x, y};
       });
+    }
+  }
+
+  endTurn() {
+    if (this.phaserRef.scene) {
+      const scene = this.phaserRef.scene as Game;
+      scene.endTurn();
     }
   }
 

@@ -12,6 +12,9 @@
       <button class="btn variant-neutral sz-md" (click)="selectCharacter()">
         <span class="btn-label">Select Character</span>
       </button>
+      <button class="btn variant-neutral sz-md" (click)="endTurn()">
+        <span class="btn-label">End Turn</span>
+      </button>
     </div>
     <div>
       <button class="button" [disabled]="canMoveSprite" (click)="moveSprite()">Toggle Movement</button>
