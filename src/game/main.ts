@@ -5,21 +5,30 @@ import {MainMenu} from './scenes/MainMenu';
 import {AUTO, Game} from 'phaser';
 import {Preloader} from './scenes/Preloader';
 import {CharacterSelect} from "./scenes/CharacterSelect";
+import {GameTrial} from "./scenes/GameTrial";
 
 //  Find out more information about the Game Config at:
 //  https://newdocs.phaser.io/docs/3.70.0/Phaser.Types.Core.GameConfig
 const config: Phaser.Types.Core.GameConfig = {
   type: AUTO,
-  width: 1024,
-  height: 768,
+  width: 800,
+  height: 600,
   parent: 'game-container',
+  pixelArt: true,
   backgroundColor: '#028af8',
+  physics: {
+    default: "arcade",
+    arcade: {
+      gravity: { x:0, y: 0 }
+    }
+  },
   scene: [
     Boot,
     Preloader,
     MainMenu,
     CharacterSelect,
     MainGame,
+    GameTrial,
     GameOver
   ]
 };

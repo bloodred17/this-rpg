@@ -5,7 +5,7 @@
     <h1 class="text-3xl text-[--body-text-color] font-bold underline">
       Hello world!
     </h1>
-    <div>
+    <div class="flex gap-2">
       <button class="btn variant-neutral sz-md" (click)="changeScene()">
         <span class="btn-label">Change Scene</span>
       </button>
@@ -15,6 +15,9 @@
       <button class="btn variant-neutral sz-md" (click)="endTurn()">
         <span class="btn-label">End Turn</span>
       </button>
+      <div class="field">
+        <input type='number' class="input variant-outlined sz-md" placeholder="Character" [(ngModel)]="characterNumber" />
+      </div>
     </div>
     <div>
       <button class="button" [disabled]="canMoveSprite" (click)="moveSprite()">Toggle Movement</button>

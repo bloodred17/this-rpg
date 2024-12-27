@@ -6,17 +6,21 @@ import {CommonModule} from '@angular/common';
 import {EventBus} from '../game/EventBus';
 import {CharacterSelect} from "../game/scenes/CharacterSelect";
 import {Game} from "../game/scenes/Game";
+import {GameTrial} from "../game/scenes/GameTrial";
+import {FormsModule} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, PhaserGame],
+  imports: [CommonModule, PhaserGame, FormsModule],
   templateUrl: './app.component.html'
 })
 export class AppComponent implements AfterViewInit {
 
   public spritePosition = {x: 0, y: 0};
   public canMoveSprite = false;
+
+  characterNumber = 0;
 
   // This is a reference from the PhaserGame component
   @ViewChild(PhaserGame) phaserRef!: PhaserGame;
@@ -53,10 +57,12 @@ export class AppComponent implements AfterViewInit {
   }
 
   endTurn() {
-    if (this.phaserRef.scene) {
-      const scene = this.phaserRef.scene as Game;
-      scene.endTurn();
-    }
+    // if (this.phaserRef.scene) {
+    //   const scene = this.phaserRef.scene as Game;
+    //   scene.endTurn();
+    // }
+    const scene = this.phaserRef.scene as GameTrial;
+    scene.selectCharacter(this.characterNumber);
   }
 
   public addSprite() {

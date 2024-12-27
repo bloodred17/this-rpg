@@ -69,14 +69,15 @@ export class CharacterSelect extends Scene {
     }).setOrigin(0.5).setInteractive();
 
     startButton.on('pointerdown', () => {
-      if (this.selectedCharacters.length === 3) {
-        this.scene.start('Game', { selectedCharacters: this.selectedCharacters });
-      } else {
-        this.add.text(400, 450, 'Please select 3 characters!', {
-          fontSize: '18px',
-          color: '#ffffff',
-        }).setOrigin(0.5).setAlpha(0).setAlpha(1);
-      }
+      this.scene.start('GameTrial', { selectedCharacters: this.selectedCharacters });
+      // if (this.selectedCharacters.length === 3) {
+      //   this.scene.start('GameTrial', { selectedCharacters: this.selectedCharacters });
+      // } else {
+      //   this.add.text(400, 450, 'Please select 3 characters!', {
+      //     fontSize: '18px',
+      //     color: '#ffffff',
+      //   }).setOrigin(0.5).setAlpha(0).setAlpha(1);
+      // }
     });
 
 
