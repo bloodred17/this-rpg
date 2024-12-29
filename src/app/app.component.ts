@@ -62,7 +62,8 @@ export class AppComponent implements AfterViewInit {
     //   scene.endTurn();
     // }
     const scene = this.phaserRef.scene as GameTrial;
-    scene.selectCharacter(this.characterNumber);
+    console.log(this.characterNumber)
+    scene.selectCharacter(+this.characterNumber);
   }
 
   public addSprite() {
